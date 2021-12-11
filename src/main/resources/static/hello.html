@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+
+<button onclick="getHello()">按钮</button>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function getHello() {
+          $.ajax({
+            url: "http://localhost:8999/hello",      //请求接口的地址
+            type: "GET",
+            dataType: "Text",
+            success: function (res) {
+              //在控制台输出返回结果
+              $("#app").html(res);
+            },
+            error: function (err) {                       //请求失败后的操作
+              console.log(22);                          //请求失败在控制台输出22
+            }
+          })
+        }
+    </script>
+</body>
+</html>
